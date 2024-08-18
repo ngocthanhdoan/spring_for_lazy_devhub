@@ -1,0 +1,11 @@
+{
+  "packageName": "com.example.myproject",
+  "tableName": "Users",
+  "className": "User",
+  "fields": [
+    {"name": "id", "type": "Long", "annotations": "@Id\n    @Column(name = \"id\")"},
+    {"name": "username", "type": "String", "annotations": "@Column(name = \"username\")"},
+    {"name": "email", "type": "String", "annotations": "@Column(name = \"email\")"},
+    {"name": "createdAt", "type": "LocalDateTime", "annotations": "@Column(name = \"created_at\")"}
+  ]
+}

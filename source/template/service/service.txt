@@ -1,0 +1,42 @@
+package ${packageName}.service;
+
+import ${packageName}.model.${className};
+import ${packageName}.repository.${className}Repository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class ${className}Service {
+
+    @Autowired
+    private ${className}Repository ${className.toLowerCase()}Repository;
+
+    public List<${className}> getAll${className}s() {
+        return ${className.toLowerCase()}Repository.findAll();
+    }
+
+    public ${className} get${className}ById(${idType} id) {
+        Optional<${className}> result = ${className.toLowerCase()}Repository.findById(id);
+        return result.orElse(null);
+    }
+
+    public ${className} create${className}(${className} ${className.toLowerCase()}) {
+        return ${className.toLowerCase()}Repository.save(${className.toLowerCase()});
+    }
+
+    public ${className} update${className}(${idType} id, ${className} ${className.toLowerCase()}) {
+        if (${className.toLowerCase()}Repository.existsById(id)) {
+            ${className}.setId(id); // Assuming there's a setId method
+            return ${className.toLowerCase()}Repository.save(${className.toLowerCase()});
+        }
+        return null;
+    }
+
+    public void delete${className}(${idType} id) {
+        ${className.toLowerCase()}Repository.deleteById(id);
+    }
+}

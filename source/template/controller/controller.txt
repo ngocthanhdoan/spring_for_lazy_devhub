@@ -1,0 +1,42 @@
+package ${packageName}.controller;
+
+import ${packageName}.model.${className};
+import ${packageName}.service.${className}Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/${tableName.toLowerCase()}")
+public class ${className}Controller {
+
+    @Autowired
+    private ${className}Service ${className.toLowerCase()}Service;
+
+    @GetMapping
+    public List<${className}> getAll${className}s() {
+        return ${className.toLowerCase()}Service.getAll${className}s();
+    }
+
+    @GetMapping("/{id}")
+    public ${className} get${className}ById(@PathVariable ${idType} id) {
+        return ${className.toLowerCase()}Service.get${className}ById(id);
+    }
+
+    @PostMapping
+    public ${className} create${className}(@RequestBody ${className} ${className.toLowerCase()}) {
+        return ${className.toLowerCase()}Service.create${className}(${className.toLowerCase()});
+    }
+
+    @PutMapping("/{id}")
+    public ${className} update${className}(@PathVariable ${idType} id, @RequestBody ${className} ${className.toLowerCase()}) {
+        return ${className.toLowerCase()}Service.update${className}(id, ${className.toLowerCase()});
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete${className}(@PathVariable ${idType} id) {
+        ${className.toLowerCase()}Service.delete${className}(id);
+    }
+}
