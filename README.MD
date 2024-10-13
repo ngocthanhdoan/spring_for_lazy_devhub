@@ -1,1 +1,6 @@
-
+```
+mvn clean
+```
+```
+mvn deploy
+```
